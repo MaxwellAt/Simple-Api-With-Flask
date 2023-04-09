@@ -1,0 +1,46 @@
+<head>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h2>Digite um link para acessar arquivos no pc</h2>
+
+    <label for="link">
+        Link:
+    </label>
+    <input type="text" name="dir" id="link">
+    <button> ok </button>
+    <br>
+    <h3>Diretorios</h3>
+    <ul>
+        <li></li>
+    </ul>
+    <script defer>
+        const btn = document.querySelector("body > button")
+        btn.addEventListener("click", () => {
+            const myheaders = new Headers({
+                "dir": document.querySelector("#link").value
+            })
+
+            // Monta a requisição
+            const myRequest = new Request("http://127.0.0.1:5000/", { method: "POST", headers: myheaders, mode: "cors" }) 
+            
+            // Faz o fetch na requisição anterior
+            fetch(myRequest)
+            .then((response) => response.json())
+            .then(data => {
+                const listItems = data.map(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    return li;
+                });
+                let ulElement = document.querySelector("ul")
+                ulElement.innerHTML = '';
+                listItems.forEach(item => ulElement.appendChild(item));
+            })
+        })
+
+
+    </script>
+</body>
