@@ -26,3 +26,5 @@ Se você deseja contribuir com este projeto, siga os seguintes passos:
 4. Implemente as modificações desejadas.
 5. Faça um push da sua branch para o seu fork.
 6. Abra um pull request descrevendo suas modificações.
+
+<img alt="ko4la" src="https://media.tenor.com/FTZx57BugI4AAAAC/koala-sleeping.gif" width="90">
